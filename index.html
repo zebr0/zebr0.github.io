@@ -1,0 +1,127 @@
+---
+layout: default
+---
+<div class="container">
+    <div class="row">
+        <div class="col col-10 mx-auto">
+            <section id="resume-header" class="text-center">
+                <div class="m-auto">
+                    <img id="profile-picture" class="rounded-circle" src="media/profile.png" alt="profile picture">
+                    <h1>Thomas JOUANNOT</h1>
+                    <h4 class="text-muted-custom">senior java/python developer</h4>
+                    <h4 class="text-muted-custom">junior solution architect</h4>
+                    <a href="https://github.com/mazerty" target="_blank"><i class="fab fa-github m-2"></i></a>
+                    <a href="https://twitter.com/distressbacon" target="_blank"><i class="fab fa-twitter m-2"></i></a>
+                    <a href="https://www.linkedin.com/in/mazerty" target="_blank"><i class="fab fa-linkedin m-2"></i></a>
+                </div>
+            </section>
+            <section id="resume-skills">
+                <h2>Skills <span class="text-muted-custom">+ todo</span></h2>
+                <div class="card-columns">
+                    {% for category in site.data.skills %}
+                    <div class="card bg-dark border-secondary">
+                        <div class="card-header border-secondary">{{ category.name }}</div>
+                        <div class="card-body">
+                            {% for skill in category.skills %}
+                            <div>{{ skill.name }}{% if skill.like %} <i class="far fa-heart text-danger"></i>{% endif %}</div>
+                            <div class="progress bg-dark">
+                                {% if skill.score %}
+                                <div class="progress-bar bg-secondary" role="progressbar" style="width: {{ skill.score }}%" aria-valuenow="{{ skill.score }}" aria-valuemin="0" aria-valuemax="100"></div>
+                                {% endif %}
+                            </div>
+                            {% endfor %}
+                            {% if category.todos %}
+                            <div class="m-2"></div>
+                            {% for todo in category.todos %}
+                            <div class="text-muted-custom">{{ todo.name }}{% if todo.like %} <i class="far fa-heart"></i>{% endif %}</div>
+                            {% endfor %}
+                            {% endif %}
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </section>
+            <section id="resume-experience">
+                <h2>Experience</h2>
+                <div class="accordion">
+                    {% for experience in site.data.experience %}
+                    <div class="card bg-dark border-secondary">
+                        {% assign i = i | plus: 1 %}
+                        <a class="card-header border-secondary d-flex flex-column flex-sm-row" data-toggle="collapse" href="#experience{{ i }}" aria-expanded="{% if i == 2 or i == 3 %}true{% else %}false{% endif %}" aria-controls="experience{{ i }}">
+                            {% if experience.title %}
+                            <div class="mr-auto">{{ experience.title }}</div>
+                            {% else %}
+                            <div class="font-italic mr-auto">Sabbatical</div>
+                            {% endif %}
+                            {% if experience.project %}
+                            <div class="d-none d-lg-block mr-5">{{ experience.project }} @ {{ experience.company }}</div>
+                            {% endif %}
+                            <div class="text-muted-custom text-sm-right" style="width: 9rem;">{{ experience.dates }}</div>
+                        </a>
+                        <div id="experience{{ i }}" class="collapse{% if i == 2 or i == 3 %} show{% endif %}">
+                            <div class="card-body">
+                                {% if experience.company %}
+                                <div><span class="text-muted-custom">Company:</span> {{ experience.company }}</div>
+                                {% endif %}
+                                {% if experience.project %}
+                                <div><span class="text-muted-custom">Project:</span> {{ experience.project }}{% if experience.project_description %}, {{ experience.project_description }}{% endif %}</div>
+                                {% endif %}
+                                {% if experience.role %}
+                                <div><span class="text-muted-custom">Role:</span> {{ experience.role }}</div>
+                                {% endif %}
+                                {% if experience.objective %}
+                                <div><span class="text-muted-custom">Objective:</span> {{ experience.objective }}</div>
+                                {% endif %}
+                                {% if experience.employer %}
+                                <div class="mt-2"><span class="text-muted-custom">Consulting for:</span> {{ experience.employer }}</div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </section>
+            <section id="resume-training-education">
+                <h2>Training <span class="text-muted-custom">+ education</span></h2>
+                <div id="resume-training" class="card-columns">
+                    <div class="card bg-dark border-secondary">
+                        <div class="card-header border-secondary d-flex flex-column flex-sm-row">
+                            <div>RHCSA Rapid Track Course (<a href="https://www.redhat.com/en/services/training/rh199-rhcsa-rapid-track-course" target="_blank">RH199</a>)</div>
+                            <div class="text-muted-custom ml-sm-auto">2019/10</div>
+                        </div>
+                        <div class="card-body">Red Hat System Administration I and II consolidated over 4 days, targeting RHEL 8.</div>
+                    </div>
+                </div>
+                <div id="resume-education" class="card-columns">
+                    <div class="card bg-dark border-secondary">
+                        <div class="card-header border-secondary d-flex flex-column flex-sm-row">
+                            <div>DUT Informatique</div>
+                            <div class="text-muted-custom ml-sm-auto">2005</div>
+                        </div>
+                        <div class="card-body">Option Génie Informatique<br>IUT Lyon I @ Villeurbanne, France</div>
+                    </div>
+                    <div class="card bg-dark border-secondary">
+                        <div class="card-header border-secondary d-flex flex-column flex-sm-row">
+                            <div>Baccalauréat Scientifique</div>
+                            <div class="text-muted-custom ml-sm-auto">2001</div>
+                        </div>
+                        <div class="card-body">Option SVT<br>Spécialité Physique-Chimie<br>Mention Bien<br>Lycée Montchapet @ Dijon, France</div>
+                    </div>
+                </div>
+            </section>
+            <section id="resume-projects">
+                <h2>Projects</h2>
+                <div class="card-columns">
+                    <div class="card bg-dark border-secondary">
+                        <div class="card-header border-secondary">Writing</div>
+                        <div class="card-body">
+                            <div><a href="fools-errand.html">Fool's Errand</a></div>
+                            <div><a href="the-albion-circle.html">The Albion Circle</a></div>
+                            <div><a href="nerevarine.html">Nerevarine</a></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>

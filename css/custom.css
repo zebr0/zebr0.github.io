@@ -1,0 +1,109 @@
+@font-face {
+    /* https://fonts.google.com/specimen/Ubuntu */
+    font-family: "Ubuntu";
+    font-style: normal;
+    font-weight: 400;
+    src: local("Ubuntu Regular"), local("Ubuntu-Regular"), url(../webfonts/Ubuntu-Regular.ttf) format("truetype");
+}
+
+@font-face {
+    /* https://fonts.google.com/specimen/Special+Elite */
+    font-family: "Special Elite";
+    font-style: normal;
+    font-weight: 400;
+    src: local("Special Elite Regular"), local("SpecialElite-Regular"), url(../webfonts/SpecialElite-Regular.ttf) format("truetype");
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+}
+
+body {
+    font-family: "Ubuntu", sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Special Elite", cursive;
+}
+
+h2 {
+    margin-top: 2rem;
+}
+
+.markdown h4 {
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+    margin-left: -0.5rem;
+}
+
+.text-custom {
+    color: #e8e9ea; /* default "text-light" is #f8f9fa */
+}
+
+.text-muted-custom {
+    opacity: 0.5; /* that way the text color is inherited, but then *everything* is opacified */
+}
+
+.pt-custom {
+    padding-top: 5rem;
+}
+
+a, a:hover {
+    color: inherit;
+}
+
+a.card-header:hover {
+    text-decoration: none;
+}
+
+#resume-header {
+    min-height: 80vh;
+    display: flex;
+    font-size: x-large;
+}
+
+#profile-picture {
+    max-width: 15rem;
+    max-height: 15rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+#resume-skills .progress {
+    height: 3px;
+    margin-top: -0.1rem;
+    margin-bottom: 0.1rem;
+}
+
+@media (min-width: 576px) {
+    #resume-skills .card-columns {
+        column-count: 2;
+    }
+
+    #resume-training.card-columns, #resume-education.card-columns {
+        column-count: 1;
+    }
+}
+
+@media (min-width: 768px) {
+    #resume-skills .card-columns {
+        column-count: 3;
+    }
+}
+
+@media (min-width: 992px) {
+    #resume-skills .card-columns {
+        column-count: 4;
+    }
+
+    #resume-education.card-columns {
+        column-count: 2;
+    }
+}
+
+@media (min-width: 1200px) {
+    #resume-skills .card-columns {
+        column-count: 5;
+    }
+}
