@@ -42,3 +42,13 @@ h1, h2, h3, h4, h5, h6 {
 a, a:hover {
     color: inherit;
 }
+
+#navbar-logo {
+    max-height: 2rem;
+    filter: opacity(0.9); /* from ".navbar-light .navbar-brand" */
+}
+
+#index-logo {
+    max-height: 13rem;
+    filter: invert(97%) sepia(6%) saturate(36%) hue-rotate(169deg) brightness(97%) contrast(91%); /* converted from ".text-custom" thanks to https://codepen.io/sosuke/pen/Pjoqqp */
+}
